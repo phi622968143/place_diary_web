@@ -1,6 +1,6 @@
 <?php
-// if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit']))//determine post and submit method
-// {
+if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit']))//determine post and submit method
+{
     // Create connection
   $servername = "localhost";
   $username = "root";
@@ -19,7 +19,7 @@
       echo "Entry!";
   }else{echo "f";}
 
-// }
+}
 
 
 ?>     
