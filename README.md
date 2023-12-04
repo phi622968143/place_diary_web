@@ -10,3 +10,5 @@ ver 0.1 main dir for personal page,up dir for register and in
 
 <img width="640" alt="截圖 2023-12-04 下午10 57 19" src="https://github.com/phi622968143/Social_network_with_html_php_mysql/assets/40814498/b4485e48-0380-4656-871b-bf7f3deee9be">
 <img width="640" alt="截圖 2023-12-04 下午10 59 22" src="https://github.com/phi622968143/Social_network_with_html_php_mysql/assets/40814498/f255f055-84ac-4f50-b892-7af1832057db">
+
+<img width="167" alt="截圖 2023-12-04 下午11 59 02" src="https://github.com/phi622968143/Social_network_with_html_php_mysql/assets/40814498/3691c5f1-ad5f-41bc-aaab-e0d8962d2971">
