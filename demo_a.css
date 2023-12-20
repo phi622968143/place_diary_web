@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: wheat;
+  position: relative;
+}
+body div.title-area {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+body div.title-area div.title {
+  padding: 0.5rem;
+}
+body div.title-area div.blank1 {
+  padding: 0.5rem;
+}
+body div.article-area {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+body div.article-area div.demo-block {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: #F4F27E;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 3px solid #6DB9EF;
+  border-radius: 15%;
+  flex: 0 1 350px;
+}
+body div.article-area div.demo-block div.block-title {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+body div.article-area div.demo-block div.block-title div.title {
+  justify-content: center;
+  flex: 0 1 265px;
+  font-size: 1.5rem;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+body div.article-area div.demo-block div.block-title div.title p {
+  margin-bottom: 0;
+}
+body div.article-area div.demo-block div.block-title div.del-article {
+  justify-content: center;
+  flex: 0 1 50px;
+}
+body div.article-area div.demo-block div.block-title div.del-article a {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+body div.article-area div.demo-block div.content {
+  padding: 0.5rem;
+}
+body div.article-area div.demo-block div.content p {
+  font-size: 1.2rem;
+}
+body div.article-area div.demo-block hr {
+  color: #6DB9EF;
+}
+body div.exit-area {
+  padding: 0.5rem;
+}/*# sourceMappingURL=demo_a.css.map */

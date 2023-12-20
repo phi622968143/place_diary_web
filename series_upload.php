@@ -1,22 +1,26 @@
-<?php session_start();
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>upload</title>
+    <title>Upload Profile</title>
 </head>
 <body>
-    <form action="article.php" method="post" onsubmit="false">
-        title <input type="text" name="title" ><br>
-        content <textarea name="record" rows="4" cols="50"></textarea><br>
+    <h2>creat series</h2>
+    <!-- enctype="multipart/form-data" -->
+    <form action="series_upload.php" method="post">
+        title of series <input type="text" name="title" ><br>
+        Introduction: <textarea name="intro" rows="4" cols="50"></textarea><br>
         <input type="submit" value="Upload" name="submit">
     </form>
+    <h3><a href="profile.php">back to series!</a></h3>
+
+
 </body>
 </html>
 <?php
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //link db
         $servername = "localhost";
         $username = "root";
@@ -31,14 +35,16 @@
 
         $name=$_SESSION['acc'];
         $t=$_POST['title'];
-        $c=$_POST['record'];
-        $series_title = isset($_SESSION["s_t"]) ? $_SESSION["s_t"] :" ";
-        $sql = "INSERT INTO article (acc,series,title,content) VALUES ('$name', '$series_title','$t', '$c')";
+        $c=$_POST['intro'];
+        $sql = "INSERT INTO series (account_name,series_title,series_content) VALUES ('$name', '$t', '$c')";
         $q=mysqli_query($conn,$sql);
         if ($q) {
-            // echo "Entry!";
+            echo "Entry!";
         }else{
             echo "f";
         }
-        echo '<a href="demo_a.php">'.'back to demo'.'</a>'; 
     }
+    // header("Location: profile.php");
+    //intro upt
+?>
+

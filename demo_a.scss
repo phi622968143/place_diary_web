@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;//
+}
+body {
+    background-color: wheat;
+    position: relative;
+    div.title-area{
+        // border: 3px solid red;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        div.title {
+            // border: 3px solid darkcyan;
+            padding: 0.5rem;
+        }
+        div.blank1{
+            padding: 0.5rem;
+            // border: 3px solid cyan;
+        }
+    }
+    div.article-area {
+        // border: 3px solid darkorchid;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-direction: row;
+        div.demo-block {
+            padding: 0.5rem;
+            margin: 0.5rem;
+            background-color: #F4F27E;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            flex-direction: column;
+            border: 3px solid #6DB9EF;
+            border-radius: 15%;
+            flex: 0 1 350px;
+            div.block-title {
+                padding: 0;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                // border: 3px solid plum;
+                div.title{
+                    justify-content: center;
+                    flex: 0 1 265px;
+                    font-size: 1.5rem;
+                    // border: 3px solid red;
+                    padding-left: 0;
+                    padding-bottom: 0;
+                    p{
+                        // border: 3px solid lightcoral;
+                        margin-bottom: 0;
+                    }
+                }
+                div.del-article{
+                    justify-content: center;
+                    // border: 3px solid cyan;
+                    flex: 0 1 50px;
+                    a{
+                        margin-right: 0;
+                        margin-bottom: 0;
+                        // border: 3px solid teal;
+                    }
+                }
+            }
+            div.content{
+                padding: 0.5rem;
+                // border: 3px solid blue;
+                p {
+                    font-size: 1.2rem;
+                }
+            }
+            hr {
+                color: #6DB9EF;
+            }
+        }
+    }
+    div.exit-area {
+        padding: 0.5rem;
+        // border: 3px solid rgb(50, 55, 204);  
+    }
+}
