@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Profile</title>
+    <link rel="stylesheet" href="./style/series_upload.css" />
 </head>
 <body>
-    <h2>creat series</h2>
+    <div class="title"><h2>creat series</h2></div>
     <!-- enctype="multipart/form-data" -->
-    <form action="series.php" method="post">
+    <div class="container">
+    <form action="series_upload.php" method="post">
         title of series <input type="text" name="title" ><br>
         Introduction: <textarea name="intro" rows="4" cols="50"></textarea><br>
         <input type="submit" value="Upload" name="submit">
     </form>
+    </div>
+    <div class="go-back">
     <h3><a href="profile.php">back to series!</a></h3>
+    </div>
+    
+
 
 </body>
 </html>
