@@ -6,13 +6,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>upload</title>
+    <link rel="stylesheet" href="./style/article_up.css?v=<?php echo time(); ?>">
 </head>
 <body>
-    <form action="article_up.php" method="post" onsubmit="false">
-        title <input type="text" name="title" ><br>
-        content <textarea name="record" rows="4" cols="50"></textarea><br>
-        <input type="submit" value="Upload" name="submit">
-    </form>
+    <div class="container">
+        <h2>Create Article</h2>
+        <form action="article_up.php" method="post" onsubmit="false">
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" required>
+            <label for="content">Content</label>
+            <textarea name="record" id="content" rows="4" cols="50" placeholder="What's in Ur Mind" required></textarea>
+            <input type="submit" value="Upload" name="submit" class="submit">
+        </form>
+    </div>
 </body>
 </html>
 <?php
@@ -40,5 +46,5 @@
         }else{
             echo "f";
         }
-        echo '<a href="demo_a.php">'.'back to demo'.'</a>'; 
+        echo '<a class="back" href="demo_a.php">'.'back to demo'.'</a>'; 
     }

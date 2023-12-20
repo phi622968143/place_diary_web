@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="demo_a.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="./style/demo_a.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <div class="title-area">
@@ -49,15 +49,15 @@
     
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            $title = $row['title'];
             echo '<div class="demo-block"><div class="block-title"><div class="title"><p>'.$row['title']. '</p></div>'.
-            '<div class="del-article"><a href="del_article.php?title='.urlencode($row['title']).'"><i class="fas fa-trash"></i></a></div></div>'.
+            '<div class="del-article"><i class="fas fa-trash"></i></div></div>'.
             '<hr>'.
-            '<div class="content"><p>'.$row['content'].'</p></div></div>';
+            '<div class="content"><p style="white-space: pre-line;">'.$row['content'].'</p></div></div>';
         }
     } else {
         echo "No article. <h1>JUST DO IT.</h1>";
     }
-    
     
     // echo '<h2><div><a href=" ">'. $_SESSION['title']."</a></div></h2>";
     // echo "<div>". $_SESSION['s_intro']."</div>";
@@ -69,6 +69,20 @@
             <a href="article_up.php">upload exitement</a>
             <h3><a href="profile.php">go back go back</a></h3>
         </div>
+        <script>
+    let deleteOrNot = document.querySelectorAll(".del-article");
+    deleteOrNot.forEach((deleting) => {
+        deleting.addEventListener("click", (event) => {
+            var response = confirm("Do you really want to delete this series?");
+            if(response){
+                let articleTitle = event.target.closest(".block-title").querySelector(".title").innerText;
+                location.replace("del_article.php?article_title=" + encodeURIComponent(articleTitle));
+            }else{
+                alert('fail to delete');
+            }
+            });
+    });
+</script>
 </body>
 
 </html>

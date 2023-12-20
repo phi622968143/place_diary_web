@@ -13,7 +13,7 @@
     $conn->set_charset("utf8mb4");
     
     $userId = $_SESSION['acc'];
-    $title=$_GET['title'];
+    $title=$_GET['article_title'];
     $del="DELETE FROM article WHERE  (acc = '$userId') AND (title='$title')";
     $r=$conn->query($del);
     

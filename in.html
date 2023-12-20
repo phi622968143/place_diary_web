@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="./in.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style/in.css" />
+  </head>
+  <body>
     <div class="title">
-        <h1>PLACE</h1>
+      <h1>PLACE</h1>
     </div>
     <div class="container">
-        <form action="check.php" method="POST">
-            <!-- <svg width="254" height="235" viewBox="0 0 254 235" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <form action="check.php" method="POST">
+        <!-- <svg width="254" height="235" viewBox="0 0 254 235" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <ellipse cx="127" cy="117.5" rx="127" ry="117.5" fill="#ffff00"/>
             </svg>
            -->
-            <label for="account">Account:</label>
-          <input type="text" name="account" id="account" required>
-    
-          <label for="pwd">Password:</label>
-          <input type="password" name="pwd" id="pwd" required>
-    
-          <input type="submit" name="submit" value="Login">
-          
-        </form>
-    <button class="registrationlink" onclick="redirectToRegistration()">Go to Registration</button>
-    <!-- <a href="up.html">註冊頁面</a> -->
-    </div>
-</body>
-<script>
-function redirectToRegistration() {
-    window.location.href = "up.html"; // Replace with your actual registration page URL
-}</script>
+        <label for="account">Account:</label>
+        <input type="text" name="account" id="account" required />
 
+        <label for="pwd">Password:</label>
+        <input type="password" name="pwd" id="pwd" required />
+
+        <input type="submit" name="submit" value="Login" />
+      </form>
+      <button class="registrationlink" onclick="redirectToRegistration()">
+        Go to Registration
+      </button>
+      <script>
+        function redirectToRegistration() {
+          window.location.href = "up.html"; // Replace with your actual registration page URL
+        }
+      </script>
+    </div>
+  </body>
 </html>

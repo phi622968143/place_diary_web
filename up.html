@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>register</title>
-</head>
-<body>
-    <form action="connect.php" method="POST">
-      account<input type="text" name="account" id="account">
-      password<input type="password" name="pwd" id="pwd">
-      <input type="submit" name="submit" id="submit">
-    </form>
-</body>
+    <link rel="stylesheet" href="./style/up.css" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>PLACE</h1>
+    </div>
+    <div class="container">
+      <form action="connect.php" method="POST">
+        <label for="account">Account:</label>
+        <input type="text" name="account" id="account" />
+        <label for="pwd">Password:</label>
+        <input type="password" name="pwd" id="pwd" />
+        <input type="submit" name="submit" value="Register" />
+      </form>
+    </div>
+  </body>
 </html>

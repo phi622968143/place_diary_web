@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: wheat;
+  position: relative;
+}
+body div.title-area {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+body div.title-area div.title {
+  padding: 0.5rem;
+}
+body div.title-area div.blank1 {
+  padding: 0.5rem;
+}
+body div.article-area {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+}
+body div.article-area div.demo-block {
+  justify-content: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  background-color: rgb(244, 242, 126);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: column;
+  border: 3px solid rgb(109, 185, 239);
+  border-radius: 15%;
+  flex: 0 1 350px;
+}
+body div.article-area div.demo-block div.block-title {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+body div.article-area div.demo-block div.block-title div.title {
+  justify-content: center;
+  flex: 0 1 265px;
+  font-size: 1.5rem;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+body div.article-area div.demo-block div.block-title div.del-article {
+  justify-content: center;
+  flex: 0 1 50px;
+  cursor: pointer;
+  color: rgb(255, 163, 60);
+  transition: all 0.5s ease;
+}
+body div.article-area div.demo-block div.block-title div.del-article :hover {
+  color: rgb(177, 94, 255);
+}
+body div.article-area div.demo-block div.block-title div.del-article i {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+body div.article-area div.demo-block div.content {
+  padding: 0.5rem;
+}
+body div.article-area div.demo-block div.content p {
+  font-size: 1.2rem;
+}
+body div.article-area div.demo-block hr {
+  color: rgb(109, 185, 239);
+}
+body div.exit-area {
+  padding: 0.5rem;
+}/*# sourceMappingURL=demo_a.css.map */
