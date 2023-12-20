@@ -20,6 +20,11 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit']))//determine pos
   }else{echo "f";}
 
 }
-
-
 ?>     
+ <button class="registrationlink" onclick="redirectToRegistration()">Go to login</button>
+  <!-- <a href="up.html">註冊頁面</a> -->
+  <script>
+    function redirectToRegistration() {
+        window.location.href = "in.html"; // Replace with your actual registration page URL
+    }
+  </script>
