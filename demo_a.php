@@ -51,7 +51,7 @@
         while ($row = $result->fetch_assoc()) {
             $title = $row['title'];
             echo '<div class="demo-block"><div class="block-title"><div class="title"><p>'.$row['title']. '</p></div>'.
-            '<div class="del-article"><i class="fas fa-trash"></i></div></div>'.
+            '<div class="del-article"><i class="fas fa-trash"></i></div></div>'.'<a href="article_update.php?article_title='.urldecode($title).'"><i class="fa-solid fa-file-pen"></i></a>'.
             '<hr>'.
             '<div class="content"><p style="white-space: pre-line;">'.$row['content'].'</p></div></div>';
         }
