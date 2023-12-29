@@ -1,0 +1,26 @@
+# 使用官方的 PHP-Apache 映像
+FROM php:7.4-apache
+
+# 安裝 MySQL 客戶端
+RUN docker-php-ext-install mysqli pdo_mysql
+
+
+# make all file same layer of dockerfile to path
+COPY ./ /var/www/html/
+
+# copy dir to path
+COPY ./style/ /var/www/html/style/
+COPY ./mysql/ /var/www/html/mysql/
+COPY ./avatar/ /var/www/html/avatar/
+# 暴露 Apache 服務器端口
+EXPOSE 80
+# 添加 Apache 配置
+RUN echo "\
+    <Directory /var/www/html/>\n\
+        Options Indexes FollowSymLinks\n\
+        AllowOverride None\n\
+        Require all granted\n\
+    </Directory>\n\
+    DirectoryIndex in.html" > /etc/apache2/sites-available/000-default.conf
+# 啟動 Apache 服務器
+CMD ["apache2-foreground"]
