@@ -1,0 +1,31 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: apache
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: test1
+      # MYSQL_USER: example_user
+      # MYSQL_PASSWORD: example_password
+    ports:
+      - "33062:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d/mysql
+      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ''  # Set this to your MySQL root password
+    ports:
+      - "8081:80"
