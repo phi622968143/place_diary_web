@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; //
+}
+body {
+  background-color: wheat;
+  position: relative;
+  div.title-area {
+    // border: 3px solid red;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    div.title {
+      // border: 3px solid darkcyan;
+      padding: 0.5rem;
+    }
+    div.blank1 {
+      padding: 0.5rem;
+      // border: 3px solid cyan;
+    }
+  }
+  div.article-area {
+    // border: 3px solid darkorchid;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    div.demo-block {
+      padding: 0.5rem;
+      margin: 0.5rem;
+      max-height: 200px;
+      background-color: rgb(244, 242, 126);
+      display: flex;
+      flex-direction: column;
+      border: 3px solid rgb(109, 185, 239);
+      border-radius: 15%;
+      flex: 0 1 350px;
+      overflow: scroll;
+      div.block-title {
+        padding: 0.8rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-height: 22%;
+        // border: 3px solid plum;
+        div.title {
+          justify-content: center;
+          flex: 0 1 265px;
+          font-size: 1.5rem;
+          // border: 3px solid red;
+          padding-left: 0;
+          padding-bottom: 0;
+          flex-wrap: wrap;
+          overflow: scroll;
+        }
+        div.update {
+          // border: 3px solid cyan;
+          justify-content: center;
+          padding-left: 1rem;
+          flex: 0 1 50px;
+          a {
+            cursor: pointer;
+            color: rgb(255, 163, 60);
+            transition: all 0.5s ease;
+            :hover {
+              color: rgb(177, 94, 255);
+            }
+          }
+        }
+        div.del-article {
+          justify-content: center;
+          right: 0.05rem;
+          // border: 3px solid cyan;
+          flex: 0 1 50px;
+          cursor: pointer;
+          color: rgb(255, 163, 60);
+          transition: all 0.5s ease;
+          :hover {
+            color: rgb(177, 94, 255);
+          }
+          i {
+            margin-right: 0;
+            margin-bottom: 0;
+            // border: 3px solid teal;
+          }
+        }
+      }
+      div.content {
+        padding: 0.5rem;
+        overflow: scroll;
+        // border: 3px solid blue;
+        height: 73%;
+        p {
+          font-size: 1.2rem;
+        }
+      }
+      hr {
+        color: rgb(109, 185, 239);
+      }
+    }
+  }
+  div.exit-area {
+    padding: 0.5rem;
+    // border: 3px solid rgb(50, 55, 204);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style-type: none;
+    justify-content: flex-start;
+    flex: 0 1 400px;
+    a {
+      margin: 0.5rem 1.4rem;
+      padding: 0.5rem 2rem;
+      height: 50%;
+      // border: 3px solid red;
+      border-radius: 30%;
+      background: linear-gradient(
+        to bottom right,
+        rgb(121, 250, 250),
+        rgb(13, 104, 249)
+      );
+      display: flex;
+      justify-content: space-around;
+      color: rgb(244, 242, 126);
+      text-decoration: none;
+      font-size: 0.8rem;
+      transition: all 0.5s ease;
+      &:hover {
+        color: rgba(15, 96, 236, 0.8);
+      }
+    }
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-track:hover {
+  background: orchid;
+}
+/*上下按鈕*/
+::-webkit-scrollbar-button {
+  background: transparent;
+}
+::-webkit-scrollbar-button:hover {
+  background: cyan;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(241, 40, 174);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

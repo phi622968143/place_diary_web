@@ -1,0 +1,198 @@
+@charset "UTF-8";
+body {
+  background-color: wheat;
+  position: relative;
+  color: white;
+}
+
+body main section.main-area {
+  /* border: 5px dashed green; */
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+body main section.main-area div.avatar {
+  padding: 1rem;
+  /* border: 5px solid red; */
+  flex: 0 1 200px;
+  position: relative;
+}
+body main section.main-area div.avatar img {
+  padding: 0.4rem;
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  -o-object-fit: cover;
+  object-fit: cover; /* 和background-image設定background-size: cover一樣，圖片剛好填滿 */
+  -o-object-position: center;
+  object-position: center;
+  border: 3px solid rgb(8, 82, 241);
+  transition: all 0.2s ease-in;
+}
+body main section.main-area div.avatar img:hover {
+  border: 3px solid rgba(9, 150, 19, 0.8);
+}
+body main section.main-area div.blankspace-1 {
+  padding: 1rem;
+  flex: 0 1 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* border: 5px solid blueviolet; */
+} /*# sourceMappingURL=style.css.map */
+body div.namearea {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  /* border: 3px solid rgb(90, 205, 195); */
+}
+body div.namearea div.myarea {
+  border-radius: 20px;
+  /* border: 3px solid darkolivegreen; */
+  background-color: rgb(255, 228, 180);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+}
+body div.namearea div.myarea div.my-name {
+  font-size: 1.2rem;
+  padding-left: 0.8rem;
+  margin: 1rem;
+  margin-bottom: 0;
+  flex: 0 1 230px;
+  /* border: 3px solid rgb(120, 35, 38); */
+  color: black;
+  display: flex;
+  list-style-type: none;
+}
+body div.namearea div.myarea div.my-intro {
+  font-size: 1.2rem;
+  padding-left: 0.8rem;
+  margin: 1rem;
+  margin-bottom: 0;
+  flex: 0 1 230px;
+  /* border: 3px solid fuchsia; */
+  color: black;
+  display: flex;
+  list-style-type: none;
+}
+body div.btn-area div.btn {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style-type: none;
+  justify-content: flex-start;
+  flex: 0 1 400px;
+  /* border: 3px solid slateblue; */
+}
+
+body div.btn-area div.btn p a {
+  margin: 0.5rem 1.4rem;
+  padding: 0.5rem 2rem;
+  height: 50%;
+  /* border: 3px solid red; */
+  border-radius: 30%;
+  background: linear-gradient(
+    to bottom right,
+    rgb(121, 250, 250),
+    rgb(13, 104, 249)
+  );
+  display: flex;
+  justify-content: space-around;
+  color: white;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.5s ease;
+}
+body div.btn-area div.btn p a:hover {
+  color: rgba(15, 96, 236, 0.8);
+}
+body div.series {
+  font-size: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  /* border: 3px solid rgb(90, 205, 195); */
+}
+body div.series div.my-block {
+  background: rgb(255, 235, 205);
+  border-radius: 14px;
+  margin: 0.3rem;
+  padding: 0.8rem;
+  max-height: 120px;
+  margin-top: 0;
+  flex: 0 1 330px;
+  border: 2px solid rebeccapurple;
+  color: black;
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: scroll;
+}
+body div.series div.my-block div.series-title {
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* border: 2px solid turquoise; */
+}
+body div.series div.my-block div.series-title a.link {
+  color: black;
+  flex: 0 1 245px;
+}
+body div.series div.my-block div.series-title div.alert {
+  cursor: pointer;
+  color: rgb(255, 163, 60);
+  flex: 0 1 20px;
+  transition: all 0.5s ease;
+}
+body div.series div.my-block div.series-title div.alert:hover {
+  color: rgb(177, 94, 255);
+}
+body div.series div.blankspace-2 {
+  padding: 1rem;
+  flex: 0 1 400px;
+  display: flex;
+  align-items: center;
+  /* border: 5px solid cyan; */
+}
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-track:hover {
+  background: orchid;
+}
+/*上下按鈕*/
+::-webkit-scrollbar-button {
+  background: transparent;
+}
+::-webkit-scrollbar-button:hover {
+  background: cyan;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(241, 40, 174);
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
