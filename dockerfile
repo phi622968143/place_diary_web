@@ -1,10 +1,18 @@
-# 使用官方的 PHP-Apache 映像
+# offical php image
 FROM php:7.4-apache
 
-# 安裝 MySQL 客戶端
+# install mysqli
 RUN docker-php-ext-install mysqli pdo_mysql
 
-# 暴露 Apache 服務器端口
+# make all file same layer of dockerfile to path
+COPY ./* /var/www/html/
+
+# # copy dir to path
+COPY ./style/ /var/www/html/style/
+# COPY ./mysql/ /var/www/html/mysql/
+# COPY ./avatar/ /var/www/html/avatar/ # TODO:import to `avatar` volume
+
+# expose
 EXPOSE 80
 # 添加 Apache 配置
 RUN echo "\
@@ -14,5 +22,5 @@ RUN echo "\
         Require all granted\n\
     </Directory>\n\
     DirectoryIndex in.html" > /etc/apache2/sites-available/000-default.conf
-# 啟動 Apache 服務器
+# start Apache
 CMD ["apache2-foreground"]
