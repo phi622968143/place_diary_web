@@ -24,7 +24,7 @@
 <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //link db
-        $servername = "localhost";
+        $servername = "db";
         $username = "root";
         $password = "";
         $db = "test1";

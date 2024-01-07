@@ -1,13 +1,14 @@
 <?php
 // Start the session
 session_start();
+ob_start();
 ?>
 <?php
 include("config.conf");
 // If not logged in, display a login form or redirect to the login page
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     // Create connection
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
     $password = "";
     $db = "test1";
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
         $row=$result->fetch_assoc();
         $pwd_hashed=$row['pwd_hashed'];
         if( $pwd_hashed==$pwd_peppered){
-        echo "Login successful!";
+        // echo "Login successful!";
         header("Location: profile.php");
         }
     } else {

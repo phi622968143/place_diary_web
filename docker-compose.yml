@@ -4,37 +4,46 @@ volumes:
   db-data:
   avatar:
 
+networks:
+  mynet:
+
 services:
   web:
     build:
       context: .
       dockerfile: Dockerfile
-    image: garry2002/place:latest
+    # image: garry2002/place:latest
     ports:
-      - "8080:80"
+      - "4000:80"
     depends_on:
       - db
     volumes:
       - avatar:/var/www/html/avatar # persist avatar folder
+    networks:
+      - mynet
+
   db:
     image:  mysql:latest
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_ROOT_PASSWORD: ''  #empty pwd of phpmyadmin
       MYSQL_DATABASE: test1
       # MYSQL_USER: example_user
       # MYSQL_PASSWORD: example_password
-    ports:
-      - "33062:3306"
     volumes:
       - db-data:/var/lib/mysql #on it's dir
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - mynet
+
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: ''  #empty pwd of phpmyadmin
     ports:
-      - "8081:80"
+      - "4001:80"
     depends_on:
       - db
-
+    networks:
+      - mynet

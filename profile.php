@@ -52,7 +52,7 @@ if (isset($_GET['logout'])) {
     <div class="myarea">
     <?php
     //29-38 connect to db 
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
     $password = "";
     $db = "test1";
@@ -93,7 +93,7 @@ if (isset($_GET['logout'])) {
     
     <?php 
     //connect to db 
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
     $password = "";
     $db = "test1";

@@ -3,7 +3,7 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // 連接資料庫
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
     $password = "";
     $db = "test1";
