@@ -47,4 +47,3 @@ services:
       - db
     networks:
       - mynet
-

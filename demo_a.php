@@ -30,7 +30,7 @@
     <div class="article-area">
     <?php 
     //sign in & find db
-    $servername = "localhost";
+    $servername = "db";
     $username = "root";
     $password = "";
     $db = "test1";

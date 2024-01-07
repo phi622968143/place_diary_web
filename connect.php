@@ -3,7 +3,7 @@ include("config.conf");
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit']))//determine post and submit method
 {
     // Create connection
-  $servername = "localhost";
+  $servername = "db";
   $username = "root";
   $password = "";
   $db="test1";

@@ -18,7 +18,7 @@
             <label for="content">Content</label>
             <textarea name="record" id="content" rows="4" cols="50"> <?
             //link db
-            $servername = "localhost";
+            $servername = "db";
             $username = "root";
             $password = "";
             $db = "test1";
@@ -48,7 +48,7 @@
 <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //link db
-        $servername = "localhost";
+        $servername = "db";
         $username = "root";
         $password = "";
         $db = "test1";
