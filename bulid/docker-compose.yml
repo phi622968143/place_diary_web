@@ -4,13 +4,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: apache
+    image: garry2002/place:latest
     ports:
       - "8080:80"
     depends_on:
       - db
   db:
-    image: mysql:5.7
+    image:  mysql:latest
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: test1
@@ -19,13 +19,17 @@ services:
     ports:
       - "33062:3306"
     volumes:
-      - ./mysql:/docker-entrypoint-initdb.d/mysql
-      - /usr/share/zoneinfo:/usr/share/zoneinfo:ro
+      - ./mysql/test1.sql:/docker-entrypoint-initdb.d/init.sql #set init sql
+      - db-data:/var/lib/mysql #on it's dir
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      MYSQL_ROOT_PASSWORD: ''  # Set this to your MySQL root password
+      MYSQL_ROOT_PASSWORD: ''  #empty pwd of phpmyadmin
     ports:
       - "8081:80"
+    depends_on:
+      - db
+volumes:
+  db-data:
