@@ -1,4 +1,9 @@
 version: '3'
+
+volumes:
+  db-data:
+  avatar:
+
 services:
   web:
     build:
@@ -9,6 +14,8 @@ services:
       - "8080:80"
     depends_on:
       - db
+    volumes:
+      - avatar:/var/www/html/avatar # persist avatar folder
   db:
     image:  mysql:latest
     environment:
@@ -30,5 +37,4 @@ services:
       - "8081:80"
     depends_on:
       - db
-volumes:
-  db-data:
+
