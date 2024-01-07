@@ -19,7 +19,6 @@ services:
     ports:
       - "33062:3306"
     volumes:
-      - ./mysql/test1.sql:/docker-entrypoint-initdb.d/init.sql #set init sql
       - db-data:/var/lib/mysql #on it's dir
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
