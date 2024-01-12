@@ -10,7 +10,7 @@ COPY ./* /var/www/html/
 # # copy dir to path
 COPY ./style/ /var/www/html/style/
 # COPY ./mysql/ /var/www/html/mysql/
-# COPY ./avatar/ /var/www/html/avatar/ # TODO:import to `avatar` volume
+COPY ./avatar/ /var/www/html/avatar/ # TODO:import to `avatar` volume
 
 # expose
 EXPOSE 80
