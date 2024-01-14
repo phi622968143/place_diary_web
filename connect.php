@@ -1,6 +1,5 @@
 <?php
 ob_start();
-include("config.conf");
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit']))//determine post and submit method
 {
   // Create connection
@@ -13,7 +12,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['submit']))//determine pos
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  $pepper=get_cfg_var("pepper");
+  $pepper= getenv("pepper");
   $a=$_POST['account'];
   $p=$_POST['pwd'];
   $pwd_peppered=hash_hmac("sha256",$p,$pepper);
