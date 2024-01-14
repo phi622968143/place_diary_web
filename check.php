@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $pepper= getenv("pepper");
+    $pepper=getenv("pepper");
     $a = $_POST['account'];
     $p = $_POST['pwd'];
     $pwd_peppered=hash_hmac("sha256",$p,$pepper);
