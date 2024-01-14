@@ -2,7 +2,6 @@
 // Start the session
 ob_start();
 session_start();
-include("config.conf");
 // If not logged in, display a login form or redirect to the login page
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     // Create connection
@@ -15,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $pepper=get_cfg_var("pepper");
+    $pepper= getenv("pepper");
     $a = $_POST['account'];
     $p = $_POST['pwd'];
     $pwd_peppered=hash_hmac("sha256",$p,$pepper);
