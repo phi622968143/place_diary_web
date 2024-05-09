@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Short Demo</title>
+    <style>
+        .date {
+            font-size: smaller; /* 设置日期文本的字体大小为较小 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Short Demo</h1>
+
+    <ul>
+        {% for note in content_list %}
+            <li>{{ note.content }}</li>
+            <li class="date">{{ note.Date }}</li> <!-- 使用 class="date" 应用样式 -->
+        {% endfor %}
+    </ul>
+</body>
+</html>
