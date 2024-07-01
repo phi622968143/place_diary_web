@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from .models import short
-# Create your views here.
+from .serializers import ShortSerializer
 
+@api_view(['GET'])
 def short_demo(request):
-    content_list=short.objects.all()
-    return render(request,'short_demo.html',{'content_list': content_list})
+    queryset = short.objects.all()
+    serializer_class = ShortSerializer
