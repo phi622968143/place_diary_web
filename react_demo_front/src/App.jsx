@@ -11,6 +11,7 @@ import UpLoadShortPage from "../pages/UpLoadShortPage";
 import LongContentPage from "../pages/LongContentPage";
 import UpLoadLongPage from "../pages/UpLoadLongPage";
 import LongContentPostPage from "../pages/LongContentPostPage";
+import axios from "axios";
 import db from "../pages/components/db.json";
 
 function App() {
@@ -18,7 +19,15 @@ function App() {
 
   useEffect(() => {
     // 模拟从 db.json 中读取数据
-    setLongPosts(db.long);
+    //setLongPosts(db.long);
+    axios
+      .get("http://127.0.0.1:8000/articles/")
+      .then((response) => {
+        setLongPosts(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the articles!", error);
+      });
   }, []);
 
   const addShort = async (newShort) => {
@@ -32,7 +41,7 @@ function App() {
   };
 
   const addLong = async (newLong) => {
-    await fetch("/api/long", {
+    await fetch("http://127.0.0.1:8000/articles/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

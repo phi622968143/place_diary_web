@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 import long from "./components/db.json";
 
 const LongContentPostPage = () => {
   const { id } = useParams();
-  const longPosts = long.long;
+  //const longPosts = long.long;
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const [longPosts, setLongPosts] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +21,16 @@ const LongContentPostPage = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  }, []);
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/articles/")
+      .then((response) => {
+        setLongPosts(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the articles!", error);
+      });
   }, []);
 
   const post = longPosts.find((post) => post.id.toString() === id);
@@ -41,7 +53,7 @@ const LongContentPostPage = () => {
         } text-xs h-2 pt-12 top-5 pb-12 border-none focus:border-transparent focus:outline-none focus:ring-0 bg-orange-100 rounded-lg shadow-sm`}
         style={{ textAlign: "left", paddingTop: "9px" }}
       >
-        {post.date}
+        {post.timestamp}
       </div>
       <div
         className={`text-base pb-12 border-none focus:border-transparent focus:outline-none focus:ring-0 bg-orange-100 rounded-lg shadow-sm ${

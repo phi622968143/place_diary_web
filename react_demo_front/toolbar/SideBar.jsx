@@ -31,7 +31,7 @@ const SideBar = () => {
       ? "cursor-default bg-white text-gray-900"
       : "cursor-pointer bg-gray-900 text-white";
   const uploadButtonStyle =
-    location.pathname === "/uploadshort"
+    location.pathname === "/uploadshorton"
       ? "cursor-default bg-white text-gray-900"
       : "cursor-pointer bg-gray-900 text-white";
 

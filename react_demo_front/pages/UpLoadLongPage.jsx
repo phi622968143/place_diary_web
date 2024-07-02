@@ -16,7 +16,7 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
   const navigate = useNavigate();
   const submitForm = (e) => {
     e.preventDefault();
-    const newLong = { title, date, content };
+    const newLong = { title, content };
     addLongSubmit(newLong);
     toast.success("Long Added Successfully");
     return navigate("/long");
@@ -24,9 +24,10 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       e.preventDefault(); // 阻止默认的 Enter 行为
-      if (e.target.name === "date") {
-        titleRef.current.focus();
-      } else if (e.target.name === "title") {
+      // if (e.target.name === "date") {
+      //   titleRef.current.focus();
+      // } else
+      if (e.target.name === "title") {
         contentRef.current.focus();
       }
     }
@@ -61,7 +62,7 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
         Submit
       </Button>
       <div className="text-xl">Content</div>
-      <input
+      {/* <input
         className={`${
           screenWidth < 768 || screenHeight < 500 ? "w-2/5" : "w-1/5"
         } text-xs h-2 pt-12 top-5 pb-12 border-none focus:border-transparent focus:outline-none focus:ring-0 bg-orange-100 rounded-lg shadow-sm`}
@@ -72,7 +73,7 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
         value={date}
         onKeyPress={handleKeyPress}
         onChange={(e) => setDate(e.target.value)}
-      ></input>
+      ></input> */}
       <textarea
         className="no-scrollbar h-8 text-base pb-12 resize-none border-none focus:border-transparent focus:outline-none focus:ring-0 bg-orange-100 rounded-lg shadow-sm"
         style={{ textAlign: "left", paddingTop: "9px" }}
