@@ -17,11 +17,13 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
-from short.views import short_demo
+from short.views import ShortListCreateView
 from Article.views import ArticleListCreateView
+from series.views import SeriesListCreateView
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('short/',short_demo),
+    path('series/',SeriesListCreateView.as_view()),
+    path('shorts/',ShortListCreateView.as_view()),
     path('articles/', ArticleListCreateView.as_view(), name='article-list-create'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
