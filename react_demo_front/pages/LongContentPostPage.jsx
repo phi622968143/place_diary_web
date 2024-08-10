@@ -34,13 +34,17 @@ const LongContentPostPage = () => {
   }, []);
 
   const post = longPosts.find((post) => post.id.toString() === id);
+  const handleMinHeight = screenWidth < 768 || screenHeight < 500;
 
   if (!post) {
     return <div>Post not found</div>;
   }
 
   return (
-    <div className="flex flex-col justify-center px-5 py-1 mx-auto h-full w-full text-xl text-black bg-orange-100">
+    <div
+      className="flex flex-col px-5 py-1 mx-auto w-full text-xl text-black bg-orange-100"
+      style={{ minHeight: handleMinHeight ? "90vh" : "100vh" }}
+    >
       <div
         className="no-scrollbar h-7 text-3xl pb-12 resize-none border-none focus:border-transparent focus:outline-none focus:ring-0 bg-orange-100 rounded-lg shadow-sm"
         style={{ textAlign: "left", paddingTop: "9px" }}
@@ -63,6 +67,11 @@ const LongContentPostPage = () => {
       >
         {post.content}
       </div>
+      {post.image != null && (
+        <div>
+          <img src={post.image} width={"350px"} height={"350px"} />
+        </div>
+      )}
     </div>
   );
 };

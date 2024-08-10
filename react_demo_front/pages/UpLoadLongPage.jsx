@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
 import { toast } from "react-toastify";
+import axios from "axios";
 import UploadSwitchButton from "./components/UploadSwitchButton";
 
 const UpLoadLongPage = ({ addLongSubmit }) => {
@@ -10,13 +11,15 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [content, setContent] = useState("");
+  const [series, setSeries] = useState([]);
+  const [selectedSeriesId, setSelectedSeriesId] = useState("");
   const dateRef = useRef(null);
   const titleRef = useRef(null);
   const contentRef = useRef(null);
   const navigate = useNavigate();
   const submitForm = (e) => {
     e.preventDefault();
-    const newLong = { title, content };
+    const newLong = { title, content, series: selectedSeriesId };
     addLongSubmit(newLong);
     toast.success("Long Added Successfully");
     return navigate("/long");
@@ -44,10 +47,21 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  useEffect(() => {
+    // 获取所有系列
+    axios
+      .get("http://127.0.0.1:8000/series/")
+      .then((response) => {
+        setSeries(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching series:", error);
+      });
+  }, []);
   return (
     <form
       onSubmit={submitForm}
-      className="flex flex-col justify-center px-7 py-10 mx-auto h-full w-full text-xl text-black bg-orange-100"
+      className="flex flex-col px-7 py-10 mx-auto h-full w-full text-xl text-black bg-orange-100"
     >
       <div className="mb-4">
         <UploadSwitchButton />
@@ -74,6 +88,20 @@ const UpLoadLongPage = ({ addLongSubmit }) => {
         onKeyPress={handleKeyPress}
         onChange={(e) => setDate(e.target.value)}
       ></input> */}
+      <select
+        className="w-1/3 text-black bg-orange-100 border-none focus:border-transparent focus:outline-none focus:ring-0"
+        value={selectedSeriesId}
+        onChange={(e) => setSelectedSeriesId(e.target.value)} // 当用户选择系列时，更新 selectedSeriesId
+      >
+        <option value="" disabled>
+          Select a Series
+        </option>
+        {series.map((serie) => (
+          <option value={serie.id} key={serie.id}>
+            {serie.title}
+          </option>
+        ))}
+      </select>
       <textarea
         className="no-scrollbar h-8 text-base pb-12 resize-none border-none focus:border-transparent focus:outline-none focus:ring-0 bg-orange-100 rounded-lg shadow-sm"
         style={{ textAlign: "left", paddingTop: "9px" }}

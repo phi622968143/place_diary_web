@@ -11,6 +11,7 @@ import UpLoadShortPage from "../pages/UpLoadShortPage";
 import LongContentPage from "../pages/LongContentPage";
 import UpLoadLongPage from "../pages/UpLoadLongPage";
 import LongContentPostPage from "../pages/LongContentPostPage";
+import SortPage from "../pages/SortPage";
 import axios from "axios";
 import db from "../pages/components/db.json";
 
@@ -54,6 +55,7 @@ function App() {
     <Route path="/" element={<Layout />}>
       <Route index element={<ShortContentPage />} />
       <Route path="long" element={<LongContentPage />} />
+      <Route path="sort" element={<SortPage />} />
       {longPosts.map((post) => (
         <Route
           key={post.id}

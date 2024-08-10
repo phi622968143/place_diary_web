@@ -1,13 +1,20 @@
 import { useState, useEffect } from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import axios from "axios";
 import short from "./db.json";
 
 const ShortContent = () => {
-  const shortPost = short.short;
+  //const shortPost = short.short;
   const [message, setMessage] = useState("");
+  const [shortPost, setShortPost] = useState([]);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+  const [selectedSeries, setSelectedSeries] = useState(null);
+  const [hasData, setHasData] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const handleResize = () => {
@@ -21,27 +28,75 @@ const ShortContent = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  // const fetchData = async () => {
-  //   let config = {
-  //     method: "get",
-  //     url: "http://127.0.0.1:8000/short/short_demo",
-  //   };
-  //   try {
-  //     const response = await axios.request(config);
-  //     setMessage(response.data.message);
-  //     //console.log(response);
-  //     console.log(response.data.message);
-  //   } catch (error) {
-  //     console.error("Error fetching data >_<", error);
-  //   }
-  // };
+  const handleMinHeight = screenWidth < 768 || screenHeight < 500;
+  useEffect(() => {
+    const seriesId = searchParams.get("series");
+    console.log("Current seriesId:", seriesId);
+    if (seriesId) {
+      fetchShorts(seriesId);
+    } else {
+      fetchAllShorts();
+    }
+  }, [searchParams]);
+
+  const fetchAllShorts = () => {
+    setIsLoading(true);
+    axios
+      .get("http://127.0.0.1:8000/shorts/")
+      .then((response) => {
+        if (response.data && response.data.length > 0) {
+          setShortPost(response.data);
+          setHasData(true);
+        } else {
+          setHasData(false);
+        }
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching all shorts:", error);
+        setHasData(false);
+        setIsLoading(false);
+      });
+  };
+
+  const fetchShorts = (seriesId) => {
+    setIsLoading(true);
+    axios
+      .get(`http://127.0.0.1:8000/shorts/?series=${seriesId}`)
+      .then((response) => {
+        if (response.data && response.data.length > 0) {
+          setShortPost(response.data);
+          setHasData(true);
+        } else {
+          setHasData(false);
+        }
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching shorts:", error);
+        setHasData(false);
+        setIsLoading(false);
+      });
+  };
+
+  if (isLoading) {
+    return <div className="text-center p-4">正在加載數據...</div>;
+  }
+
+  if (!hasData) {
+    return (
+      <div className="text-center p-4 text-red-500">
+        沒有找到相關的數據。請嘗試其他系列或返回主頁。
+      </div>
+    );
+  }
 
   return (
     <>
-      <div className="flex flex-col items-center p-12 bg-zinc-300">
+      <div
+        className="flex flex-col items-center p-12 bg-zinc-300"
+        style={{ minHeight: handleMinHeight ? "70vh" : "76vh" }}
+      >
         <Grid
           templateColumns={`${
             screenWidth < 768 ? "repeat(2, 1fr)" : "repeat(5, 1fr)"
@@ -62,6 +117,9 @@ const ShortContent = () => {
           }`}
         ></div>
       </div>
+      {!hasData && (
+        <div className="text-red-500">沒有找到相關的數據。請嘗試其他系列。</div>
+      )}
     </>
   );
 };

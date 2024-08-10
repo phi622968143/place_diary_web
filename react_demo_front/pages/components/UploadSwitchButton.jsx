@@ -21,14 +21,18 @@ const UploadSwitchButton = () => {
 
   const longUploadStyle =
     location.pathname === "/uploadlong"
-      ? "cursor-default text-black"
-      : "cursor-pointer text-red-400 hover:text-black";
+      ? "cursor-default text-red-400"
+      : "cursor-pointer text-black hover:text-red-400";
   const shortUploadStyle =
     location.pathname === "/uploadshort"
-      ? "cursor-default text-black"
-      : "cursor-pointer text-red-400 hover:text-black";
+      ? "cursor-default text-red-400"
+      : "cursor-pointer text-black hover:text-red-400";
   return (
-    <div className="flex gap-4 p-5 text-sm content-start whitespace-nowrap bg-orange-100">
+    <div
+      className={`flex gap-4 p-5 ${
+        screenWidth < 768 || screenHeight < 500 ? "text-sm" : "text-base"
+      } content-start whitespace-nowrap bg-orange-100`}
+    >
       <Link
         to="/uploadlong"
         className={`${longUploadStyle} duration-500 ease-out`}

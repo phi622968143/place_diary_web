@@ -30,6 +30,10 @@ const SideBar = () => {
     location.pathname === "/"
       ? "cursor-default bg-white text-gray-900"
       : "cursor-pointer bg-gray-900 text-white";
+  const sortButtonStyle =
+    location.pathname === "/sort"
+      ? "cursor-default bg-white text-gray-900"
+      : "cursor-pointer bg-gray-900 text-white";
   const uploadButtonStyle =
     location.pathname === "/uploadshorton"
       ? "cursor-default bg-white text-gray-900"
@@ -57,8 +61,8 @@ const SideBar = () => {
         </li>
         <li>
           <NavLink
-            className="px-4 my-2 py-2 text-white duration-200 hover:bg-white hover:text-gray-900 rounded-2xl text-center text-xl flex flex-row"
-            to="/"
+            className={`px-4 my-2 py-2 ${sortButtonStyle} duration-200 hover:bg-white hover:text-gray-900 rounded-2xl text-center text-xl flex flex-row`}
+            to="/sort"
           >
             <PiBooksFill className={`${iconSize}`} />
             <span className={`ms-2 text-2xl ${textVisible}`}>Intro</span>

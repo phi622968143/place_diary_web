@@ -43,7 +43,7 @@ const Introduction = () => {
             "
             className="rounded-full aspect-[0.94] w-[69px]"
           />
-          <div className="mt-2.5">林鵝子</div>
+          <div className="mt-2.5">葉赫那拉小雨</div>
         </div>
       </div>
       <div className="flex flex-col text-xs text-white mr-7">

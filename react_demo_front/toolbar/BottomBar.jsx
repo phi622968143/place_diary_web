@@ -29,6 +29,10 @@ const BottomBar = () => {
     location.pathname === "/"
       ? "cursor-default bg-white text-gray-900"
       : "cursor-pointer bg-gray-900 text-white";
+  const sortButtonStyle =
+    location.pathname === "/sort"
+      ? "cursor-default bg-white text-gray-900"
+      : "cursor-pointer bg-gray-900 text-white";
   const uploadButtonStyle =
     location.pathname === "/uploadshort"
       ? "cursor-default bg-white text-gray-900"
@@ -49,8 +53,8 @@ const BottomBar = () => {
         </li>
         <li>
           <NavLink
-            className="text-center text-xl flex flex-row px-4 my-0 py-2 text-white duration-200 hover:bg-white hover:text-gray-900 rounded-lg"
-            to="/"
+            className={`text-center text-xl flex flex-row px-4 my-0 py-2 ${sortButtonStyle} duration-200 hover:bg-white hover:text-gray-900 rounded-lg`}
+            to="/sort"
           >
             <PiBooksFill className="size-5" />
           </NavLink>
