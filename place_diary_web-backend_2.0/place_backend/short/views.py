@@ -11,3 +11,11 @@ class ShortListCreateView(generics.ListCreateAPIView):
         if series_id is not None:
             queryset = queryset.filter(series_id=series_id)
         return queryset
+    def create(self, request, *args, **kwargs):
+        #get id
+        series_id = request.query_params.get('series', None)
+        #write id
+        if series_id is not None:
+            request.data['series_id'] = series_id
+
+        return super().create(request, *args, **kwargs)
